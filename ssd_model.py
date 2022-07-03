@@ -111,6 +111,7 @@ class SSD300(nn.Module):
             layer = self.pdcnet.layers[idx%2]
             layer2 = self.pdcnet.layers[(idx+1)%2]
             image = (layer2(image)** 2 + layer(image) ** 2) ** 0.5
+            image = self.pdcnet.layers[-1](image)
 
         x = self.feature_extractor(image)
         
