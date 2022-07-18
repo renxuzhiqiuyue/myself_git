@@ -111,7 +111,7 @@ class SSD300(nn.Module):
             layer = self.pdcnet.layers[idx%2]
             layer2 = self.pdcnet.layers[(idx+1)%2]
             image = (layer2(image)** 2 + layer(image) ** 2) ** 0.5
-
+            
         x = self.feature_extractor(image)
         
         # Feature Map 38x38x1024, 19x19x512, 10x10x512, 5x5x256, 3x3x256, 1x1x256
